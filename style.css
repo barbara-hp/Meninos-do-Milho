@@ -1,0 +1,464 @@
+@charset "utf-8";
+
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,700;1,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+html {
+	height: 100vh;
+	width: 100vw;
+	background-image: linear-gradient(to right, #a1ebfa, #fff383);
+}
+
+/* ------ HEADER ------*/
+.header {
+	width: 100%;
+	height: 250px;
+	background-color: #0cc0df;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.teste-fixo {
+	position: fixed;
+	width: 100%;
+}
+.teste {
+	display: flex;
+	justify-content: space-between;
+	padding: 1em;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.171);
+	background-image: url(imgs/milhoheader-cortado.jpg);
+	background-size: cover;
+}
+
+.teste-2 {
+	width: 100%;
+	height: 300px;
+	background-image: url(imgs/possivel-fundo-red-dir.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: bottom right;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-top: 85px;
+}
+
+.titulo {
+	font-family: "Poppins", sans-serif;
+	font-size: 2.2em;
+	color: white;
+	text-shadow: 1px 1px 3px black;
+}
+.subtitulo {
+	font-family: "Raleway", sans-serif;
+	font-weight: 700;
+	color: rgb(250, 79, 0);
+	font-size: 1.2em;
+	text-shadow: 1px 1px 2px rgb(51, 48, 48);
+}
+
+.img-logo {
+	width: 80px;
+}
+
+/* ------ MENU ------*/
+.menu-container {
+	width: 50px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgb(255, 255, 255);
+	border: 1px solid rgba(72, 255, 0, 0.534);
+	box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.295);
+	border-radius: 50%;
+}
+
+.menu-container:hover {
+	background-color: rgb(161, 255, 121);
+	border: 1.5px solid rgb(255, 255, 255);
+	box-shadow: 1px 1px 4px 4px rgba(0, 0, 0, 0.295);
+}
+.material-symbols-outlined {
+	font-weight: 500;
+	font-size: 2em;
+	color: rgb(62, 204, 6);
+	text-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.637);
+}
+.material-symbols-outlined:hover {
+	color: white;
+}
+
+/* ------ MAIN ------*/
+.main {
+	background-color: white;
+	box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.329);
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+}
+
+.boas-vindas {
+	margin-top: 1em;
+	width: 100%;
+	height: 320px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	background-image: url(imgs/saco-2.jpg);
+	background-size: cover;
+}
+.container-boas-vindas {
+	margin: auto;
+	width: 80%;
+	height: 90%;
+	border: 2px solid rgb(250, 142, 0);
+	background-color: white;
+	border-radius: 8px;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	justify-content: space-around;
+	padding: 0 1em;
+}
+
+.titulo-bem-vindo {
+	font-family: "Poppins", sans-serif;
+	font-size: 2.2em;
+	color: rgb(12, 59, 2);
+	/* background: -webkit-linear-gradient(#3bf516d0, #e2e607c0, #ca470a9f);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent; */
+	text-align: center;
+}
+
+.texto-boas-vindas {
+	font-family: "Raleway", sans-serif;
+	font-weight: 500;
+	font-size: 1.2em;
+	text-align: justify;
+	color: rgb(12, 59, 2);
+	opacity: 1;
+	line-height: 1.5; /* animation: anima-texto-boas-vindas ease-in-out 2s forwards; */
+}
+@keyframes anima-texto-boas-vindas {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 80%;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+/* ------ PRODUTOS ------*/
+
+.section-produtos {
+	width: 100%;
+	height: 450px;
+	background-image: url(imgs/milhoheader-cortado.jpg);
+}
+.section__header {
+	text-align: center;
+	padding: 1em 0.5em 0.5em 0.5em;
+	line-height: 1.5;
+}
+.section__titulo {
+	font-family: "Poppins", sans-serif;
+	font-size: 2em;
+	color: #fdfdfb;
+	text-shadow: 2px 1px 3px rgba(0, 0, 0, 0.527);
+}
+
+.section__texto {
+	font-family: "Raleway", sans-serif;
+	font-size: 1em;
+	padding: 0 1em;
+	font-weight: 600;
+	color: rgb(12, 59, 2);
+	text-shadow: 2px 1px 3px #dfdcdca4;
+}
+
+/* ------ SLIDER ------*/
+.slider {
+	width: 100%;
+	height: 75%;
+	position: relative;
+	display: flex;
+	align-items: center;
+
+	/* IN THE END */
+	overflow: hidden;
+}
+
+.slide {
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	height: 80%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	/* THIS creates the animation! */
+	transition: transform 1s;
+}
+
+.slide-img--pamonha {
+	width: 80%;
+	height: 80%;
+	border-radius: 8px;
+}
+
+.slider__btn {
+	position: absolute;
+	top: 50%;
+	z-index: 10;
+	border: none;
+	background: rgba(255, 255, 255, 0.822);
+	font-family: inherit;
+	color: #2b2828bb;
+	border-radius: 50%;
+	height: 4.5rem;
+	width: 4.5rem;
+	font-size: 3rem;
+	cursor: pointer;
+}
+
+.slider__btn--left {
+	left: 6%;
+	transform: translate(-50%, -90px);
+}
+
+.slider__btn--right {
+	right: 6%;
+	transform: translate(50%, -90px);
+}
+
+.dots {
+	position: absolute;
+	bottom: 13%;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+}
+
+.dots__dot {
+	border: none;
+	background-color: #fff59d;
+	opacity: 0.7;
+	height: 0.7rem;
+	width: 0.7rem;
+	border-radius: 50%;
+	margin-right: 1rem;
+	cursor: pointer;
+	transition: all 0.5s;
+
+	/* Only necessary when overlying images */
+	/* box-shadow: 0 0.6rem 1.5rem rgba(0, 0, 0, 0.7); */
+}
+
+.dots__dot:last-child {
+	margin: 0;
+}
+
+.dots__dot--active {
+	/* background-color: #fff; */
+	background-color: rgb(199, 247, 27);
+	opacity: 1;
+}
+
+/* testeeeeee*/
+.produtos-container {
+	width: 65%;
+	height: 100%;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+}
+.produtos-container-img {
+	width: 90%;
+	height: 150px;
+	background-color: white;
+	box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.705);
+	border-radius: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.produtos__container--header {
+	font-family: "Poppins", sans-serif;
+	color: rgb(199, 247, 27);
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.562);
+	font-size: 1.5rem;
+	font-weight: 00;
+}
+
+.produtos-texto {
+	font-family: "Raleway", sans-serif;
+	font-weight: 600;
+	text-align: center;
+	padding: 0.5em;
+	font-size: 1rem;
+	font-weight: 600;
+	color: rgb(12, 59, 2);
+	text-shadow: 2px 1px 3px #dfdcdc86;
+}
+
+.acessa-cardapio-container {
+	width: 100%;
+	height: 100px;
+	margin: auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-image: linear-gradient(45deg, #21535f, #56a4b4, #67c9dd);
+}
+
+.acessa-cardapio {
+	font-family: "Poppins", sans-serif;
+	color: rgb(250, 246, 246);
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.425);
+	width: 70%;
+	margin: auto;
+	height: 40px;
+	border-radius: 5px;
+	padding: 1.5em;
+	font-size: 1em;
+	font-weight: 600;
+	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.432);
+	background-color: rgb(159, 197, 21);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	animation: anima-botao 1s ease-in-out alternate infinite;
+}
+
+@keyframes anima-botao {
+	100% {
+		transform: scale(1.1);
+		font-family: 1.1em;
+	}
+}
+
+.section-delivery {
+	font-family: "Poppins", sans-serif;
+	width: 100%;
+	padding: 1em;
+	color: rgb(12, 59, 2);
+	background-image: url(imgs/saco-2.jpg);
+}
+
+.delivery-titulo {
+	color: rgb(12, 59, 2);
+	text-align: center;
+	font-size: 2em;
+	line-height: 1.2;
+	font-weight: 700;
+}
+
+.delivery-subtitulo {
+	font-size: 1.2;
+	font-weight: 600;
+	color: rgb(247, 97, 27);
+	text-shadow: 1px 1px 1px rgba(201, 184, 184, 0.651);
+	padding: 1em 0;
+}
+
+.lista-wrap {
+	background-color: white;
+	padding: 1em;
+	border-radius: 8px;
+	box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.705);
+}
+.delivery-pedido {
+	font-size: 1em;
+	font-weight: 600;
+}
+.delivery-lista {
+	padding: 1em;
+}
+
+.lista-item {
+	font-family: "Raleway", sans-serif;
+	font-weight: 600;
+	font-size: 1em;
+	line-height: 1.5;
+	padding: 0.5em 0;
+	text-align: justify;
+}
+.familia {
+	width: 100%;
+	position: relative;
+	top: 20%;
+}
+/* ---------- FALE CONOSCO ---------- */
+.contato {
+	font-family: "Raleway", sans-serif;
+	font-weight: 600;
+	font-size: 1em;
+	color: white;
+	padding: 1em;
+	background-image: linear-gradient(45deg, #21535f, #67c9dd);
+	text-shadow: 2px 1px 3px rgba(0, 0, 0, 0.527);
+}
+label {
+	padding: 1em 0 0.5em 0;
+}
+label[for="contato-form"] {
+	display: block;
+	font-family: "Poppins", sans-serif;
+	font-size: 2em;
+	font-weight: 700;
+	text-align: center;
+}
+
+#contato-form {
+	width: 90%;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+}
+
+input {
+	height: 40px;
+	border-radius: 5px;
+	padding: 0.5em 0px 1em 0px;
+}
+textarea {
+	border-radius: 5px;
+	margin-bottom: 1em;
+}
+.button-submit {
+	width: 30%;
+	height: 40px;
+	margin: auto;
+	border-radius: 5px;
+	padding: 8px;
+}
+.footer {
+	width: 100vw;
+	height: 100px;
+	background-color: white;
+	background-repeat: none;
+	background-size: cover;
+	background-position: bottom left;
+	transform: rotate(180deg);
+}
