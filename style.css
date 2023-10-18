@@ -8,8 +8,8 @@
 	margin: 0px;
 	padding: 0px;
 	box-sizing: border-box;
-	overflow-x: hidden;
 }
+
 html {
 	height: 100vh;
 	width: 100vw;
@@ -137,10 +137,6 @@ html {
 	font-family: "Poppins", sans-serif;
 	font-size: 2.2em;
 	color: rgb(12, 59, 2);
-	/* background: -webkit-linear-gradient(#3bf516d0, #e2e607c0, #ca470a9f);
-	background-clip: text;
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent; */
 	text-align: center;
 }
 
@@ -231,28 +227,22 @@ html {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	padding: 0 0.5em;
 }
+
 .slider__btn {
-	z-index: 10;
-	cursor: pointer;
+	border: none;
+	border-radius: 50%;
+	height: 3.5rem;
+	width: 3.5rem;
+	color: rgb(43, 41, 41);
+	background-color: white;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
-
-.slider__btn > button {
-	background-color: transparent;
-	font-family: "Poppins", sans-serif;
-	border: none;
-	border-radius: 50%;
-	font-size: 2em;
-	height: 4rem;
-	width: 4rem;
-	color: rgb(43, 41, 41);
-	font-weight: 600;
-	background-color: white;
-	text-align: center;
-	line-height: 0.2;
+.slider__btn > svg {
+	color: rgba(44, 39, 39, 0.781);
 }
 
 .dots {
