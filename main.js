@@ -1,4 +1,4 @@
-// 'use strict';
+'use strict';
 const slider = function () {
   const slides = document.querySelectorAll(".slide");
 
@@ -7,7 +7,7 @@ const slider = function () {
   const slidesContainer = document.querySelector(".slider");
   const dotContainer = document.querySelector(".dots");
 
-
+  let touchStartX = 0;
   let currentSlide = 0;
   const maxSlide = slides.length;
 
@@ -72,6 +72,23 @@ const slider = function () {
     if (e.key === "ArrowLeft") prevSlide();
     e.key === "ArrowRight" && nextSlide();
 
+  });
+
+  // Event listeners for touch events
+  slidesContainer.addEventListener("touchstart", (e) => {
+    touchStartX = e.touches[0].clientX;
+  });
+
+  slidesContainer.addEventListener("touchend", (e) => {
+    console.log(e);
+    const touchEndX = e.changedTouches[0].clientX;
+    const difX = touchEndX - touchStartX;
+
+    if (difX > 0) {
+      prevSlide();
+    } else if (difX < 0) {
+      nextSlide();
+    }
   });
 
   dotContainer.addEventListener("click", function (e) {

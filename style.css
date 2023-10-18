@@ -223,29 +223,32 @@ html {
 	border-radius: 8px;
 }
 
-.slider__btn {
+.container-buttons {
 	position: absolute;
-	top: 50%;
+	top: 28%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.slider__btn {
 	z-index: 10;
-	border: none;
 	background: rgba(255, 255, 255, 0.822);
 	font-family: inherit;
-	color: #2b2828bb;
 	border-radius: 50%;
 	height: 4.5rem;
 	width: 4.5rem;
-	font-size: 3rem;
 	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
-.slider__btn--left {
-	left: 6%;
-	transform: translate(-50%, -90px);
-}
-
-.slider__btn--right {
-	right: 6%;
-	transform: translate(50%, -90px);
+.slider__btn > button {
+	background-color: transparent;
+	border: none;
+	font-size: 2em;
+	color: #202020bb;
 }
 
 .dots {
