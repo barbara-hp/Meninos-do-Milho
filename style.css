@@ -234,10 +234,6 @@ html {
 }
 .slider__btn {
 	z-index: 10;
-
-	border-radius: 50%;
-	height: 4.5rem;
-	width: 4.5rem;
 	cursor: pointer;
 	display: flex;
 	align-items: center;
@@ -248,9 +244,15 @@ html {
 	background-color: transparent;
 	font-family: "Poppins", sans-serif;
 	border: none;
-	font-size: 3em;
-	color: white;
+	border-radius: 50%;
+	font-size: 2em;
+	height: 4rem;
+	width: 4rem;
+	color: rgb(43, 41, 41);
 	font-weight: 600;
+	background-color: white;
+	text-align: center;
+	line-height: 0.2;
 }
 
 .dots {
