@@ -8,6 +8,7 @@
 	margin: 0px;
 	padding: 0px;
 	box-sizing: border-box;
+	overflow-x: hidden;
 }
 html {
 	height: 100vh;
@@ -233,8 +234,7 @@ html {
 }
 .slider__btn {
 	z-index: 10;
-	background: rgba(255, 255, 255, 0.822);
-	font-family: inherit;
+
 	border-radius: 50%;
 	height: 4.5rem;
 	width: 4.5rem;
@@ -246,9 +246,11 @@ html {
 
 .slider__btn > button {
 	background-color: transparent;
+	font-family: "Poppins", sans-serif;
 	border: none;
-	font-size: 2em;
-	color: #202020bb;
+	font-size: 3em;
+	color: white;
+	font-weight: 600;
 }
 
 .dots {
