@@ -19,17 +19,16 @@ html {
 /* ------ HEADER ------*/
 .header {
 	width: 100%;
-	height: 250px;
+	height: 220px;
 	background-color: #0cc0df;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	background-image: url(imgs/possivel-fundo-red-dir.png);
+	background-size: cover;
+	background-position: right center;
 }
 
-.teste-fixo {
-	position: fixed;
-	width: 100%;
-}
 .teste {
 	display: flex;
 	justify-content: space-between;
@@ -41,16 +40,11 @@ html {
 
 .teste-2 {
 	width: 100%;
-	height: 300px;
-	background-image: url(imgs/possivel-fundo-red-dir.png);
-	background-size: contain;
-	background-repeat: no-repeat;
-	background-position: bottom right;
+	height: 150px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	padding-top: 85px;
 }
 
 .titulo {
@@ -110,18 +104,19 @@ html {
 
 .boas-vindas {
 	margin-top: 1em;
+	padding: 1em 0;
 	width: 100%;
-	height: 320px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-around;
 	background-image: url(imgs/saco-2.jpg);
-	background-size: cover;
+	background-size: conain;
 }
+
 .container-boas-vindas {
 	margin: auto;
-	width: 80%;
+	width: 90%;
 	height: 90%;
 	border: 2px solid rgb(250, 142, 0);
 	background-color: white;
@@ -135,30 +130,33 @@ html {
 
 .titulo-bem-vindo {
 	font-family: "Poppins", sans-serif;
-	font-size: 2.2em;
+	font-size: 2em;
 	color: rgb(12, 59, 2);
 	text-align: center;
+	padding: 0.8em;
+}
+.subtitulo-bem-vindo {
+	font-family: "Poppins", sans-serif;
+	font-size: 1em;
+	color: rgb(12, 59, 2);
+	text-align: start;
 }
 
 .texto-boas-vindas {
 	font-family: "Raleway", sans-serif;
 	font-weight: 500;
-	font-size: 1.2em;
+	font-size: 1em;
 	text-align: justify;
 	color: rgb(12, 59, 2);
-	opacity: 1;
-	line-height: 1.5; /* animation: anima-texto-boas-vindas ease-in-out 2s forwards; */
+	line-height: 1.5;
+	padding: 1em 0;
 }
-@keyframes anima-texto-boas-vindas {
-	0% {
-		opacity: 0;
-	}
-	50% {
-		opacity: 80%;
-	}
-	100% {
-		opacity: 1;
-	}
+.familia-img {
+	width: 100%;
+}
+
+.saiba-mais {
+	display: none;
 }
 
 /* ------ PRODUTOS ------*/
@@ -277,8 +275,6 @@ html {
 	background-color: rgb(199, 247, 27);
 	opacity: 1;
 }
-
-/* testeeeeee*/
 .produtos-container {
 	width: 65%;
 	height: 100%;
@@ -317,6 +313,7 @@ html {
 	color: rgb(12, 59, 2);
 	text-shadow: 2px 1px 3px #dfdcdc86;
 }
+/* ------- CARDÁPIO -----*/
 
 .acessa-cardapio-container {
 	width: 100%;
@@ -354,6 +351,8 @@ html {
 		font-family: 1.1em;
 	}
 }
+
+/* ------- DELIVERY -----*/
 
 .section-delivery {
 	font-family: "Poppins", sans-serif;
@@ -401,10 +400,11 @@ html {
 	padding: 0.5em 0;
 	text-align: justify;
 }
-.familia {
+.delivery-img {
 	width: 100%;
+	height: 250px;
 	position: relative;
-	top: 20%;
+	bottom: 2em;
 }
 /* ---------- FALE CONOSCO ---------- */
 .contato {
@@ -419,8 +419,7 @@ html {
 label {
 	padding: 1em 0 0.5em 0;
 }
-label[for="contato-form"] {
-	display: block;
+.titulo-contato {
 	font-family: "Poppins", sans-serif;
 	font-size: 2em;
 	font-weight: 700;
@@ -435,20 +434,53 @@ label[for="contato-form"] {
 }
 
 input {
+	font-family: "Raleway", sans-serif;
+	font-weight: 600;
+	color: rgb(12, 59, 2);
 	height: 40px;
 	border-radius: 5px;
-	padding: 0.5em 0px 1em 0px;
+	padding: 0.5em;
+	font-size: 0.8em;
+	border: none;
+	box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.363);
 }
 textarea {
+	color: rgb(12, 59, 2);
 	border-radius: 5px;
 	margin-bottom: 1em;
+	padding: 0.5em;
+	font-family: "Raleway", sans-serif;
+	font-weight: 600;
+	box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.363);
 }
+input:placeholder-shown,
+textarea:placeholder-shown {
+	font-family: "Raleway", sans-serif;
+	font-weight: 600;
+	padding: 0.5em;
+}
+input:focus,
+textarea:focus {
+	outline-color: rgb(250, 204, 0);
+}
+
 .button-submit {
-	width: 30%;
-	height: 40px;
+	font-family: "Poppins", sans-serif;
+	color: rgb(250, 246, 246);
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.493);
+	width: 40%;
+	height: 30px;
 	margin: auto;
-	border-radius: 5px;
-	padding: 8px;
+	border-radius: 8px;
+	padding: 1.5em;
+	font-size: 1em;
+	font-weight: 600;
+	background-color: rgb(159, 197, 21);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	box-shadow: 1px 1px 8px 2px rgba(0, 0, 0, 0.445);
 }
 .footer {
 	width: 100vw;

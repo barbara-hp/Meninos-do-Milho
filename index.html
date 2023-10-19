@@ -47,17 +47,59 @@
 		<main class="main">
 			<section class="boas-vindas">
 				<div class="container-boas-vindas">
-					<h2 class="titulo-bem-vindo cssanimation sequence leRotateYZoomIn">
-						Bem-vindo
-					</h2>
+					<h2 class="titulo-bem-vindo">Sobre nós</h2>
+					<h3 class="subtitulo-bem-vindo">Bem-vindos ao Meninos do Milho!</h3>
 					<p class="texto-boas-vindas">
-						"Explore o nosso mundo de milho e sabor na família 'Meninos do
+						O nome "Meninos do Milho" é uma homenagem à nossa querida família
+						composta por pai, mãe e dois jovens curiosos. Unidos pela paixão
+						pelo milho, decidimos compartilhar com você o que mais amamos.
+
+						<!--"Explore o nosso mundo de milho e sabor na família 'Meninos do
 						Milho,' onde cada mordida é uma experiência única."
-						<!--"Nós, a família Meninos do Milho, estamos comprometidos em servir cada
+						"Nós, a família Meninos do Milho, estamos comprometidos em servir cada
 						dia melhor a você e à sua família com sabor que aquece corações, feito
 						com amor pela nossa família para a sua."-->
 					</p>
+					<p class="texto-boas-vindas">
+						Trabalhamos juntos em casa, onde abrimos uma banquinha na garagem
+						para que você possa desfrutar das nossas delícias...
+					</p>
+
+					<p class="texto-boas-vindas saiba-mais">
+						Nossa jornada começa nas raízes do campo, onde buscamos o milho
+						fresco diretamente da roça. É aí que tudo começa, com a seleção dos
+						melhores espigões para nossos produtos
+					</p>
+					<p class="texto-boas-vindas saiba-mais">
+						Elaboramos uma variedade de delícias que celebram o sabor autêntico
+						do milho: pamonhas, milho cozido, curau, bolo de milho e geleias.
+						Cada um deles é resultado do nosso compromisso com a autenticidade e
+						o frescor.
+					</p>
+					<p class="texto-boas-vindas saiba-mais">
+						No Meninos do Milho, nosso compromisso é trazer a tradição rural
+						para a sua mesa. Valorizamos o frescor, a autenticidade e a riqueza
+						do milho em todos os nossos produtos. Queremos que cada mordida seja
+						uma experiência que une as pessoas e celebra o sabor único do campo.
+					</p>
+					<p class="texto-boas-vindas saiba-mais">
+						Ao escolher nossos produtos, você faz parte da nossa história e da
+						nossa família. Agradecemos por nos permitir compartilhar o que mais
+						amamos com você. Aproveite cada sabor com a certeza de que é
+						preparado com o mesmo carinho que temos um pelo outro.
+					</p>
+					<p class="texto-boas-vindas saiba-mais">
+						Agradecemos por escolher nossos produtos e por fazer parte da nossa
+						história. Aproveite cada sabor que oferecemos, com o mesmo amor e
+						dedicação que colocamos em cada um deles.
+					</p>
+					<p class="button-saiba-mais">Saiba Mais</p>
 				</div>
+				<img
+					class="familia-img"
+					src="imgs/familia-cortada.png"
+					alt=""
+				/>
 			</section>
 			<section class="section-produtos">
 				<div class="section__header">
@@ -261,15 +303,15 @@
 							Nosso delivery atende todo São José do Rio Preto
 						</li>
 					</ul>
+					<img
+						class="delivery-img"
+						src="imgs/Delivery-teste.png"
+						alt=""
+					/>
 				</div>
-				<img
-					class="familia"
-					src="imgs/familia-cortada.png"
-					alt=""
-				/>
 			</section>
 			<section class="contato">
-				<label for="contato-form">Fale conosco</label>
+				<h2 class="titulo-contato">Fale conosco</h2>
 				<form
 					id="contato-form"
 					action=""
@@ -280,12 +322,16 @@
 						name="Nome"
 						id="nome"
 						type="name"
+						placeholder="Insira seu nome"
+						required
 					/>
 					<label for="email">Email</label>
 					<input
 						name="Email"
 						id="email"
 						type="email"
+						placeholder="Insira seu e-mail"
+						required
 					/>
 					<label for="mensagem">Mensagem</label>
 					<textarea
@@ -293,12 +339,14 @@
 						id="mensagem"
 						cols="30"
 						rows="10"
+						placeholder="Digite sua mensagem"
+						required
 					></textarea>
 					<button
 						class="button-submit"
 						type="submit"
 					>
-						Submit
+						Enviar
 					</button>
 				</form>
 			</section>

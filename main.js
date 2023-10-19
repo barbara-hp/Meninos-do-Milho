@@ -7,6 +7,7 @@ const slider = function () {
   const slidesContainer = document.querySelector(".slider");
   const dotContainer = document.querySelector(".dots");
 
+
   let touchStartX = 0;
   let currentSlide = 0;
   const maxSlide = slides.length;
@@ -101,3 +102,23 @@ const slider = function () {
   });
 };
 slider();
+
+//Saiba Mais
+
+const buttonSaibaMais = document.querySelector(".button-saiba-mais");
+const saibaMaisTexto = document.querySelectorAll(".saiba-mais");
+
+let escondido = true;
+let lerMais = true;
+
+buttonSaibaMais.addEventListener("click", () => {
+  console.log("clicou");
+
+  escondido = !escondido;
+  lerMais = !lerMais;
+
+  saibaMaisTexto.forEach(el => el.style.display = escondido ? "none" : "block");
+
+  buttonSaibaMais.textContent = lerMais ? "Saiba mais" : "Ler menos";
+
+});
