@@ -605,7 +605,8 @@ textarea:focus {
 	align-items: center;
 	justify-content: space-between;
 }
-.item {
+.item,
+.item-1 {
 	font-family: "Raleway", sans-serif;
 	color: rgb(12, 59, 2);
 	font-size: 0.9em;
