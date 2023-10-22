@@ -17,7 +17,7 @@ html {
 	position: fixed;
 	right: 3%;
 	border-radius: 50%;
-	top: 90%;
+	top: 87%;
 	z-index: 10;
 	animation: pulse 2.5s infinite;
 }
@@ -84,7 +84,77 @@ html {
 }
 
 /* ------ MENU ------*/
+/*-----NAV-----*/
+#menu {
+	display: block;
+	position: absolute;
+	width: 100%;
+}
+/*-----UL-----*/
+.menu-burguer {
+	box-sizing: border-box;
+	position: absolute;
+	top: 85px;
+	width: 100%;
+	border: 5px solid rgb(62, 204, 6);
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+	left: 0;
+	z-index: 10000;
+	height: 0px;
+	cursor: pointer;
+	transition: 0.5s;
+	visibility: hidden;
+	overflow-y: hidden;
+}
+#menu.active .menu-burguer {
+	height: 185px;
+	visibility: visible;
+}
+
+.icone-menu {
+	display: block;
+	width: 20px;
+	border-top: 2px solid;
+	color: rgb(62, 204, 6);
+}
+
+.icone-menu::after,
+.icone-menu::before {
+	content: "";
+	display: block;
+	width: 20px;
+	height: 2px;
+	margin-top: 5px;
+	background: currentColor;
+	transition: 0.3s;
+	position: relative;
+}
+
+#menu.active .icone-menu {
+	border-top-color: transparent;
+}
+
+#menu.active .icone-menu::before {
+	transform: rotate(135deg);
+	background-color: red;
+}
+#menu.active .icone-menu::after {
+	transform: rotate(-135deg);
+	top: -7px;
+	background-color: red;
+}
+.menu-container:hover {
+	background-color: rgb(161, 255, 121);
+	border: 1.5px solid rgb(255, 255, 255);
+	box-shadow: 1px 1px 4px 4px rgba(0, 0, 0, 0.295);
+}
+
+/*-----Este abaixo é o div redondo verde------*/
 .menu-container {
+	position: absolute;
+	top: 1em;
+	right: 1em;
 	width: 50px;
 	height: 50px;
 	display: flex;
@@ -95,20 +165,29 @@ html {
 	box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.295);
 	border-radius: 50%;
 }
-
-.menu-container:hover {
-	background-color: rgb(161, 255, 121);
-	border: 1.5px solid rgb(255, 255, 255);
-	box-shadow: 1px 1px 4px 4px rgba(0, 0, 0, 0.295);
+.menu-burguer-lista {
+	list-style: none;
+	padding: 0.5em;
+	font-size: 1em;
+	text-align: center;
+	background-color: rgb(250, 250, 250);
 }
-.material-symbols-outlined {
-	font-weight: 500;
-	font-size: 2em;
-	color: rgb(62, 204, 6);
-	text-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.637);
+.menu-burguer-lista:not(:last-child) {
+	border-bottom: 1px solid rgba(223, 222, 222, 0.795);
 }
-.material-symbols-outlined:hover {
+.menu-burguer-lista:hover {
+	background-color: rgb(217, 252, 203);
+	font-size: 1.1em;
 	color: white;
+	transition: 0.15s ease-in-out;
+}
+.menu-burguer-lista:active {
+	background-color: rgb(194, 255, 170);
+	transition: 0.15s ease-in-out;
+}
+
+.menu-burguer-lista:hover > a {
+	text-shadow: 1px 1px 3px rgba(255, 254, 254, 0.87);
 }
 
 /* ------ MAIN ------*/
@@ -174,6 +253,19 @@ html {
 	display: none;
 }
 
+.mostrar {
+	display: block;
+	animation: fadeIn 0.8s linear;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
 .button-saiba-mais {
 	font-family: "Poppins", sans-serif;
 	font-size: 0.8em;

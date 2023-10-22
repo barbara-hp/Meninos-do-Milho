@@ -108,7 +108,7 @@ slider();
 const buttonSaibaMais = document.querySelector(".button-saiba-mais");
 const saibaMaisTexto = document.querySelectorAll(".saiba-mais");
 
-let escondido = true;
+let escondido = false;
 let lerMais = true;
 
 buttonSaibaMais.addEventListener("click", () => {
@@ -117,7 +117,7 @@ buttonSaibaMais.addEventListener("click", () => {
   escondido = !escondido;
   lerMais = !lerMais;
 
-  saibaMaisTexto.forEach(el => el.style.display = escondido ? "none" : "block");
+  saibaMaisTexto.forEach(el => el.classList.contains("mostrar") ? el.classList.remove("mostrar") : el.classList.add("mostrar"));
 
   buttonSaibaMais.textContent = lerMais ? "Saiba mais" : "Ler menos";
 
@@ -132,4 +132,12 @@ document.querySelectorAll('.item').forEach(link => {
       targetElement.scrollIntoView({ behavior: 'smooth' });
     }
   });
+});
+
+const menu = document.querySelector(".menu-container");
+const nav = document.getElementById("menu");
+
+
+menu.addEventListener("click", () => {
+  nav.classList.toggle("active");
 });
