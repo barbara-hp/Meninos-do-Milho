@@ -123,10 +123,13 @@ buttonSaibaMais.addEventListener("click", () => {
 
 });
 
-document.querySelectorAll('.item').forEach(link => {
+const linhas = document.querySelectorAll(".menu-burguer-lista");
+
+
+linhas.forEach(link => {
   link.addEventListener('click', function (e) {
     e.preventDefault();
-    const targetId = this.getAttribute('href').substring(1);
+    const targetId = this.firstElementChild.getAttribute('href').substring(1);
     const targetElement = document.getElementById(targetId);
     if (targetElement) {
       targetElement.scrollIntoView({ behavior: 'smooth' });
@@ -134,9 +137,9 @@ document.querySelectorAll('.item').forEach(link => {
   });
 });
 
+
 const menu = document.querySelector(".menu-container");
 const nav = document.getElementById("menu");
-
 
 menu.addEventListener("click", () => {
   nav.classList.toggle("active");
