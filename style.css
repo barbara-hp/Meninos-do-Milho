@@ -144,11 +144,6 @@ html {
 	top: -7px;
 	background-color: red;
 }
-.menu-container:hover {
-	background-color: rgb(161, 255, 121);
-	border: 1.5px solid rgb(255, 255, 255);
-	box-shadow: 1px 1px 4px 4px rgba(0, 0, 0, 0.295);
-}
 
 /*-----Este abaixo é o div redondo verde------*/
 .menu-container {
