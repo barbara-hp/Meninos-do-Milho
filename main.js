@@ -123,7 +123,7 @@ buttonSaibaMais.addEventListener("click", () => {
 
 });
 
-const linhas = document.querySelectorAll(".menu-burguer-lista");
+const linhas = document.querySelectorAll(".scroll");
 
 
 linhas.forEach(link => {
