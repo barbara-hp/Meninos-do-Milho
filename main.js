@@ -144,3 +144,4 @@ const nav = document.getElementById("menu");
 menu.addEventListener("click", () => {
   nav.classList.toggle("active");
 });
+
