@@ -15,10 +15,10 @@ cards.forEach((card) => {
       <button class="btn--close-modal">&times;</button>
     </div>
     <form class="modal__form">
-    <div class="subtitulos-form">
-      <h2 class="sabor">Sabor</h2>
-      <h2 class="quantidade">Quantidade</h2>
-    </div>
+      <div class="subtitulos-form">
+        <h2 class="sabor">Sabor</h2>
+        <h2 class="quantidade">Quantidade</h2>
+      </div>
       <div class="produto-wrap">
         <label>Doce</label>
         <div class="btns-quantidade-container">
@@ -44,29 +44,68 @@ cards.forEach((card) => {
           <button class="btn-quantidade btn-mais">+</button>
         </div>
       </div>
-   
-    </div>
-
     </form>
+    <div class="btns-opt-container">
+        <button class="btn-opt">Minha cesta</button>
+        <button class="btn-opt"><a>Seguir comprando</a></button>
+        <button class="btn-opt">Finalizar compra</button>
+      </div>
   </div>
 `;
   card.appendChild(modalContainer);
 });
 
+const overlay = document.querySelector(".overlay");
+const modals = document.querySelectorAll(".modal");
+const buttonsClose = document.querySelectorAll(".btn--close-modal");
+
+function openModal (index) {
+  const modal = modals[index];
+  // const overlay = overlays[index];
+  modal.classList.add("active");
+
+
+  const card = cards[index];
+  const cardPosition = card.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
+
+  const cardTop = cardPosition.top;
+  const cardHeight = cardPosition.height;
+
+  const scrollPosition = cardTop - (windowHeight / 2) + (cardHeight / 2);
+
+  window.scrollBy({
+    top: scrollPosition,
+    behavior: 'smooth',
+  });
+  overlay.classList.remove("hidden");
+}
+
+
+
+function closeModal (index) {
+  const modal = modals[index];
+  // const overlay = overlays[index];
+  modal.classList.remove("active");
+  overlay.classList.add("hidden");
+}
 
 buttonsOpen.forEach((button, index) => {
   button.addEventListener("click", function () {
-    const modal = document.querySelectorAll(".modal")[index];
-    modal.classList.add("active");
-
+    openModal(index);
   });
 });
 
-const buttonsClose = document.querySelectorAll(".btn--close-modal");
-
 buttonsClose.forEach((button, index) => {
-  const modal = document.querySelectorAll(".modal")[index];
   button.addEventListener("click", function () {
-    modal.classList.remove("active");
+    closeModal(index);
   });
+});
+
+overlay.addEventListener('click', function () {
+  const modal = document.querySelector(".modal.active");
+  if (modal) {
+    modal.classList.remove("active");
+    overlay.classList.add("hidden");
+  }
 });

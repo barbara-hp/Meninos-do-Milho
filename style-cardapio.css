@@ -35,7 +35,7 @@ html {
 	border-bottom: 1px solid rgba(0, 0, 0, 0.171);
 	background-image: url(imgs/milhoheader-cortado.jpg);
 	background-size: cover;
-	z-index: 100;
+	z-index: 1000;
 }
 
 .teste-2 {
@@ -226,15 +226,15 @@ main {
 
 /* ---------- MODAL ---------- */
 .modal {
-	padding: 1em;
+	padding: 0.5em 1em;
 	box-sizing: border-box;
 	position: absolute;
-	bottom: 170px;
+	bottom: 8%;
 	width: 100%;
 	background: white;
 	border-radius: 8px;
 	left: 0;
-	z-index: 10000;
+	z-index: 500;
 	cursor: pointer;
 	transition: 0.5s;
 	height: 0;
@@ -245,7 +245,7 @@ main {
 }
 
 .modal.active {
-	height: calc(100% - 170px);
+	height: 85%;
 	visibility: visible;
 }
 .wrap-titulo-modal {
@@ -309,8 +309,37 @@ main {
 	height: 20px;
 }
 
-*/
+.btns-opt-container {
+	max-width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-top: 0.7em;
+}
 
+.btn-opt {
+	font-family: "Poppins", sans-serif;
+	font-weight: 500;
+	font-size: 0.6em;
+	padding: 5px;
+}
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 8px;
+	background-color: #00000080;
+	backdrop-filter: blur(4px);
+	z-index: 100;
+	transition: all 0.5s;
+}
+
+.hidden {
+	visibility: hidden;
+	opacity: 0;
+}
 /* ---------- RODAPE -----------*/
 .footer {
 	font-family: "Raleway", sans-serif;
