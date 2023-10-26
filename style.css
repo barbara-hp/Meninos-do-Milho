@@ -48,7 +48,11 @@ html {
 }
 
 .teste {
+	position: fixed;
+	z-index: 100;
 	display: flex;
+	width: 100%;
+	height: 85px;
 	justify-content: space-between;
 	padding: 1em;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.171);
@@ -57,8 +61,10 @@ html {
 }
 
 .teste-2 {
+	position: relative;
 	width: 100%;
-	height: 150px;
+	height: 130px;
+	top: 85px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -93,9 +99,10 @@ html {
 /*-----UL-----*/
 .menu-burguer {
 	box-sizing: border-box;
-	position: absolute;
+	position: fixed;
 	top: 85px;
 	width: 100%;
+
 	border: 5px solid rgb(62, 204, 6);
 	border-bottom-left-radius: 8px;
 	border-bottom-right-radius: 8px;
@@ -108,7 +115,7 @@ html {
 	overflow-y: hidden;
 }
 #menu.active .menu-burguer {
-	height: 185px;
+	height: 184px;
 	visibility: visible;
 }
 
@@ -147,9 +154,9 @@ html {
 
 /*-----Este abaixo é o div redondo verde------*/
 .menu-container {
-	position: absolute;
+	position: fixed;
 	top: 1em;
-	right: 1em;
+	left: 83%;
 	width: 50px;
 	height: 50px;
 	display: flex;
@@ -159,6 +166,7 @@ html {
 	border: 1px solid rgba(72, 255, 0, 0.534);
 	box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.295);
 	border-radius: 50%;
+	z-index: 1000;
 }
 .menu-burguer-lista {
 	list-style: none;

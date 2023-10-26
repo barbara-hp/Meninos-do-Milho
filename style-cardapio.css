@@ -27,17 +27,22 @@ html {
 }
 
 .teste {
+	position: fixed;
 	display: flex;
+	width: 100%;
 	justify-content: space-between;
 	padding: 1em;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.171);
 	background-image: url(imgs/milhoheader-cortado.jpg);
 	background-size: cover;
+	z-index: 100;
 }
 
 .teste-2 {
+	position: relative;
+	height: 130px;
+	top: 85px;
 	width: 100%;
-	height: 150px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -76,9 +81,9 @@ html {
 
 /*-----Este abaixo é o div redondo verde------*/
 .menu-container {
-	position: absolute;
+	position: fixed;
 	top: 1em;
-	right: 1em;
+	left: 83%;
 	width: 50px;
 	height: 50px;
 	display: flex;
@@ -88,6 +93,7 @@ html {
 	border: 1px solid rgba(72, 255, 0, 0.534);
 	box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.295);
 	border-radius: 50%;
+	z-index: 1000;
 }
 .menu-container a {
 	display: flex;
@@ -177,6 +183,11 @@ main {
 	height: 13px;
 }
 
+#milho-cozido li {
+	list-style: none;
+	height: 18px;
+}
+
 #quenga li {
 	height: 30px;
 }
@@ -195,8 +206,8 @@ main {
 }
 
 .valor {
-	font-family: "Raleway", sans-serif;
-	font-size: 1.5em;
+	font-family: "Poppins", sans-serif;
+	font-size: 1.4em;
 	font-weight: 600;
 	color: #80db1a;
 }
@@ -218,11 +229,10 @@ main {
 	padding: 1em;
 	box-sizing: border-box;
 	position: absolute;
-	bottom: 0;
+	bottom: 170px;
 	width: 100%;
 	background: white;
-	border-bottom-left-radius: 8px;
-	border-bottom-right-radius: 8px;
+	border-radius: 8px;
 	left: 0;
 	z-index: 10000;
 	cursor: pointer;
@@ -231,16 +241,34 @@ main {
 	visibility: hidden;
 	overflow-y: hidden;
 	transform-origin: bottom;
+	box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.384);
 }
 
 .modal.active {
-	height: 100%;
+	height: calc(100% - 170px);
 	visibility: visible;
 }
 .wrap-titulo-modal {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	font-family: "Poppins", sans-serif;
+	height: 35px;
+}
+.modal__header {
+	font-size: 1.2em;
+}
+.subtitulos-form {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.3em 0;
+}
+.subtitulos-form > h2 {
+	font-family: "Raleway", sans-serif;
+	font-size: 1.05em;
+	font-weight: 600;
+	justify-self: start;
 }
 
 .btn--close-modal {
@@ -250,12 +278,37 @@ main {
 	border: none;
 	background: none;
 	color: red;
+	margin: 0;
 }
 
-.hidden {
-	visibility: hidden;
-	opacity: 0;
+/* ---------- MODAL FORM ---------*/
+.modal-form {
+	width: 100%;
 }
+.produto-wrap {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.5em 0;
+	border-bottom: 1px solid rgba(185, 185, 185, 0.233);
+}
+
+.btns-quantidade-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 84px;
+}
+.btns-quantidade-container > input {
+	width: 35px;
+	height: 20px;
+}
+.btn-quantidade {
+	width: 20px;
+	height: 20px;
+}
+
 */
 
 /* ---------- RODAPE -----------*/
