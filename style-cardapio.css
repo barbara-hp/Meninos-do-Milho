@@ -309,6 +309,18 @@ main {
 	height: 20px;
 }
 
+.total-modal {
+	font-family: "Poppins", sans-serif;
+	font-size: 1.2em;
+	font-weight: 600;
+}
+.linha-modal {
+	width: 45%;
+}
+
+.valor-modal {
+	font-size: 1.2em;
+}
 .btns-opt-container {
 	max-width: 100%;
 	display: flex;
