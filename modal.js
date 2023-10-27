@@ -19,7 +19,7 @@ cards.forEach((card) => {
         <h2 class="sabor">Sabor</h2>
         <h2 class="quantidade">Quantidade</h2>
       </div>
-      <div class="produto-wrap">
+      <div class="modal-produto-wrap">
         <label>Doce</label>
         <div class="btns-quantidade-container">
          
@@ -28,7 +28,7 @@ cards.forEach((card) => {
           <button class="btn-quantidade btn-mais">+</button>
         </div>
       </div>
-      <div class="produto-wrap">
+      <div class="modal-produto-wrap">
         <label>Doce com queijo</label>
         <div class="btns-quantidade-container">
           <button class="btn-quantidade btn-menos">-</button>
@@ -36,7 +36,7 @@ cards.forEach((card) => {
           <button class="btn-quantidade btn-mais">+</button>
         </div>
       </div>
-      <div class="produto-wrap">
+      <div class="modal-produto-wrap">
         <label>Salgado com linguiça e queijo</label>
         <div class="btns-quantidade-container">
           <button class="btn-quantidade btn-menos">-</button>
