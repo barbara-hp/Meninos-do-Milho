@@ -2,6 +2,7 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,700;1,800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@600;700&display=swap");
 
 * {
 	margin: 0px;
@@ -293,6 +294,9 @@ main {
 	padding: 0.5em 0;
 	border-bottom: 1px solid rgba(185, 185, 185, 0.233);
 }
+.modal-produto-wrap > label {
+	max-width: calc(100% - 85px);
+}
 
 .btns-quantidade-container {
 	display: flex;
@@ -319,21 +323,52 @@ main {
 }
 
 .valor-modal {
+	max-width: 105px;
 	font-size: 1.2em;
+	text-align: right;
+	font-family: "IBM Plex Mono", monospace;
 }
 .btns-opt-container {
-	max-width: 100%;
+	padding-top: 0.7em;
+	position: absolute;
+	right: 1em;
+	bottom: 1em;
+	width: 90%;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding-top: 0.7em;
 }
 
 .btn-opt {
 	font-family: "Poppins", sans-serif;
-	font-weight: 500;
+	font-weight: 700;
 	font-size: 0.6em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border: none;
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.438);
+	background-color: cyan;
+	width: 101px;
 	padding: 5px;
+	gap: 2px;
+	border-radius: 8px;
+	color: rgb(255, 255, 255);
+	text-shadow: 1px 1px 5px rgb(0, 0, 0);
+	letter-spacing: 0.8px;
+}
+
+.btn__opt-cesta {
+	background-color: #c9bc0ae3;
+	border: 2px solid #7e7609e3;
+}
+.btn__opt-continuar {
+	background-color: #c9660ad8;
+	border: 2px solid #773d07d8;
+}
+.btn__opt-finalizar {
+	background-color: #1ac90ad3;
+	border: 2px solid #106d07d3;
 }
 .overlay {
 	position: fixed;

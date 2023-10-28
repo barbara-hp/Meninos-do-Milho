@@ -6,35 +6,35 @@ const buttonsOpen = document.querySelectorAll(".btn--show-modal");
 
 const produtosModal = [
   [
-    { nome: "Pamonha doce", preco: "R$ 8,00" },
-    { nome: "Pamonha doce com queijo", preco: "R$ 8,00" },
-    { nome: "Pamonha salgada com linguiça e queijo", preco: "R$ 8,00" }
+    { nome: "Pamonha doce", preco: "8" },
+    { nome: "Pamonha doce com queijo", preco: "8" },
+    { nome: "Pamonha com linguiça e queijo", preco: "R$ 8" }
   ],
   [
-    { nome: "Quente", preco: "R$ 8,00" },
-    { nome: "Temperatura ambiente - natural", preco: "R$ 8,00" },
-    { nome: "Gelado", preco: "R$ 8,00" }
+    { nome: " Curau quente", preco: "R$ 8" },
+    { nome: "Curau temperatura ambiente", preco: "8" },
+    { nome: "Curau gelado", preco: "8" }
   ],
   [
-    { nome: "Bolo", preco: "R$ 8,00" }
+    { nome: "Pedaço de bolo", preco: "8" }
   ],
   [
-    { nome: "Suco de milho", preco: "R$ 8,00" }
+    { nome: "Suco de milho", preco: "8" }
   ],
   [
-    { nome: "Frango", preco: "R$ 8,00" },
-    { nome: "Calabresa com bacon", preco: "R$ 8,00" }
+    { nome: "Quenga com frango", preco: "8" },
+    { nome: "Quenga com calabresa e bacon", preco: "8" }
   ],
   [
-    { nome: "Milho cozido", preco: "R$ 8,00" }
+    { nome: "Milho cozido", preco: "8" }
   ],
   [
-    { nome: "Morango", preco: "R$ 8,00" },
-    { nome: "Morango com amora", preco: "R$ 8,00" },
-    { nome: "Pimenta", preco: "R$ 8,00" },
+    { nome: "Geleia de morango", preco: "8" },
+    { nome: "Geleia de morango com amora", preco: "8" },
+    { nome: "Geleia de pimenta", preco: "8" },
   ],
   [
-    { nome: "Polpa de milho ralado", preco: "R$ 8,00" }
+    { nome: "Polpa de milho ralado", preco: "8" }
   ],
 ];
 
@@ -47,32 +47,33 @@ cards.forEach((card, index) => {
       <button class="btn--close-modal">&times;</button>
     </div>
     <form class="modal__form">
-      <div class="subtitulos-form">
-        <h2 class="sabor"></h2>
+   
+    <div class="subtitulos-form">
+        <h2 class="sabor">Produto</h2>
         <h2 class="quantidade">Quantidade</h2>
       </div>
-      ${produtosModal[index].map(produto =>
+       ${produtosModal[index].map(produto =>
     `<div class="modal-produto-wrap">
           <label>${produto.nome}</label>
           <div class="btns-quantidade-container">
             <button class="btn-quantidade btn-menos">-</button>
-            <input type="text" />
+            <input type="text"  id="quantidade-input-${index}" />
             <button class="btn-quantidade btn-mais">+</button>
           </div>
         </div>`
   ).join('')}
       
-      <div class="container-valor">
-        <span class="total-modal">Total</span>
-        <span class="linha linha-modal"></span>
-        <span class="valor valor-modal">R$ 0.00</span>
-      </div>
+    <div class="container-valor">
+    <span class="total-modal">Total</span>
+    <span class="linha linha-modal"></span>
+    <span class="valor valor-modal" id="valor-total-${index}">R$ 0.00</span>
+  </div>
     </form>
 
     <div class="btns-opt-container">
-      <button class="btn-opt">Minha cesta</button>
-      <button class="btn-opt">Seguir comprando</button>
-      <button class="btn-opt">Finalizar compra</button>
+      <button class="btn-opt btn__opt-cesta"><img src="./imgs/carrinhodecompras.svg"/>Ver cesta</button>
+      <button class="btn-opt btn__opt-continuar"><img src="./imgs/add_shopping_cart_FILL0_wght400_GRAD0_opsz24.svg"/>Continuar</button>
+      <button class="btn-opt btn__opt-finalizar"><img src="./imgs/carrinhodecomprasFinalizar.svg"/>Finalizar</button>
     </div>
   </div>
   `;
@@ -86,7 +87,6 @@ function openModal (index) {
   const modal = modals[index];
 
   modal.classList.add("active");
-
 
   const card = cards[index];
   const cardPosition = card.getBoundingClientRect();
@@ -131,4 +131,70 @@ overlay.addEventListener('click', function () {
     modal.classList.remove("active");
     overlay.classList.add("hidden");
   }
-});;;;
+});
+
+const btnsDiminuir = document.querySelectorAll(".btn-menos");
+const btnsAumentar = document.querySelectorAll(".btn-mais");
+const valorTotal = document.querySelectorAll(".valor-modal");
+
+function calcValorTotal () {
+  cards.forEach((card, index) => {
+    let total = 0;
+
+    const inputs = card.querySelectorAll("input[type='text']");
+    const produtos = produtosModal[index];
+
+    inputs.forEach((input, i) => {
+      const quantidade = parseInt(input.value, 10) || 0;
+      const preco = parseFloat(produtos[i].preco.replace('R$', '').trim());
+
+      if (!isNaN(preco)) {
+        total += quantidade * preco;
+      }
+    });
+
+    const valorTotal = card.querySelector(".valor-modal");
+    const valorFormatado = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(total);
+    valorTotal.textContent = valorFormatado;
+  });
+}
+
+calcValorTotal();
+
+function alterarValor (input, operacao) {
+  if (input && input.tagName === 'INPUT' && input.type === 'text') {
+    let valorAtual = parseInt(input.value, 10) || 0;
+
+    if (operacao === 'aumentar') {
+      valorAtual += 1;
+      if (valorAtual > 10) {
+        alert("Para pedidos maiores, por gentileza entrar em contato diretamente conosco pelo telefone ou WhatsApp");
+        valorAtual = 10;
+      }
+    } else if (operacao === 'diminuir') {
+      valorAtual -= 1;
+      if (valorAtual < 0) {
+        valorAtual = 0;
+      }
+    }
+
+    input.value = valorAtual;
+    calcValorTotal();
+  }
+}
+
+btnsAumentar.forEach(function (btnAumentar) {
+  btnAumentar.addEventListener("click", function (e) {
+    e.preventDefault();
+    const input = btnAumentar.previousElementSibling;
+    alterarValor(input, 'aumentar');
+  });
+});
+
+btnsDiminuir.forEach(function (btnDiminuir) {
+  btnDiminuir.addEventListener("click", function (e) {
+    e.preventDefault();
+    const input = btnDiminuir.nextElementSibling;
+    alterarValor(input, 'diminuir');
+  });
+});
