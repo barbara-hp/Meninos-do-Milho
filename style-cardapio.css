@@ -15,6 +15,7 @@ html {
 	width: 100vw;
 	background-color: #9dd9e5;
 }
+
 .header {
 	width: 100%;
 	height: 220px;
@@ -137,10 +138,13 @@ main {
 	position: relative;
 	width: 350px;
 	margin: auto;
-	height: 400px;
+	/* height: 250px; */
 	padding: 1em;
 	box-shadow: 1px 1px 5px 2px #00000033;
 	border-radius: 8px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 .card-wrap {
 	display: flex;
@@ -169,14 +173,14 @@ main {
 	font-size: 1em;
 	height: 19px;
 }
-.card-ul {
+/*.card-ul {
 	font-family: "Raleway", sans-serif;
 	font-weight: 500;
 	font-size: 1em;
 	padding: 1em;
 }
 
-#polpa li,
+ #polpa li,
 #milho-cozido li,
 #bolo li,
 #suco li {
@@ -191,43 +195,36 @@ main {
 
 #quenga li {
 	height: 30px;
-}
+} */
 /* ---------- LINHA E PREÇO ---------- */
-
-.container-valor {
+.card-container-valor-img {
 	display: flex;
-	align-items: center;
+	align-items: end;
 	justify-content: space-between;
-	padding: 1em 0;
-}
-
-.linha {
-	width: 65%;
-	border-bottom: 2px dashed #80db1a;
+	margin-top: 1.5em;
 }
 
 .valor {
 	font-family: "Poppins", sans-serif;
 	font-size: 1.4em;
 	font-weight: 600;
-	color: #80db1a;
+	color: #0ea509;
 }
 
 .produto-wrap {
-	margin: auto;
-	pad: 1em;
-	width: 85%;
+	width: 50%;
+	text-align: center;
 }
 .img-produto {
 	border-radius: 8px;
-	width: 100%;
-	height: 150px;
+	width: 95%;
+	height: 100px;
 	margin: auto;
 }
 
 /* ---------- MODAL ---------- */
 .modal {
-	padding: 0.5em 1em;
+	padding: 1em;
 	box-sizing: border-box;
 	position: absolute;
 	bottom: 8%;
@@ -246,10 +243,11 @@ main {
 }
 
 .modal.active {
-	height: 85%;
+	height: 330px;
 	visibility: visible;
 }
 .wrap-titulo-modal {
+	width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -263,7 +261,7 @@ main {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 0.3em 0;
+	padding: 1em 0;
 }
 .subtitulos-form > h2 {
 	font-family: "Raleway", sans-serif;
@@ -283,18 +281,26 @@ main {
 }
 
 /* ---------- MODAL FORM ---------*/
-.modal-form {
+.modal-container-scroll {
+	padding: 0.3em;
+	overflow-y: scroll;
+	cursor: pointer;
+	box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.521);
 	width: 100%;
+	height: 70%;
 }
+
 .modal-produto-wrap {
 	width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 0.5em 0;
+	padding: 0.3em 0;
 	border-bottom: 1px solid rgba(185, 185, 185, 0.233);
 }
-.modal-produto-wrap > label {
+.modal-produto-wrap > p {
+	font-family: "Raaleway", sans-serif;
+	font-size: 1em;
 	max-width: calc(100% - 85px);
 }
 
@@ -303,6 +309,7 @@ main {
 	align-items: center;
 	justify-content: space-between;
 	width: 84px;
+	padding-right: 0.2em;
 }
 .btns-quantidade-container > input {
 	width: 35px;
@@ -312,31 +319,40 @@ main {
 	width: 20px;
 	height: 20px;
 }
+.container-valor-modal {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	margin-top: 1em;
+}
 
 .total-modal {
 	font-family: "Poppins", sans-serif;
 	font-size: 1.2em;
 	font-weight: 600;
 }
-.linha-modal {
-	width: 45%;
+
+.linha {
+	height: 2px;
+	width: 40%;
+	border-bottom: 2px dashed #80db1a;
 }
 
 .valor-modal {
-	max-width: 105px;
 	font-size: 1.2em;
 	text-align: right;
 	font-family: "IBM Plex Mono", monospace;
 }
 .btns-opt-container {
-	padding-top: 0.7em;
 	position: absolute;
-	right: 1em;
-	bottom: 1em;
-	width: 90%;
+	width: 100%;
+	right: 0;
+	bottom: 0em;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	padding: 1em;
 }
 
 .btn-opt {
@@ -349,7 +365,7 @@ main {
 	border: none;
 	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.438);
 	background-color: cyan;
-	width: 101px;
+	width: 95px;
 	padding: 5px;
 	gap: 2px;
 	border-radius: 8px;
@@ -386,6 +402,17 @@ main {
 .hidden {
 	visibility: hidden;
 	opacity: 0;
+}
+
+.lista-cesta {
+	background-color: red;
+	width: 300px;
+	height: 300px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 500;
 }
 /* ---------- RODAPE -----------*/
 .footer {
