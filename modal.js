@@ -346,9 +346,9 @@ function atualizarURLWhatsApp () {
     });
   });
   const mensagemUri = encodeURI(mensagem);
-  const url = "https://wa.me/5517996767733?text=" + mensagemUri;
+  const url = "https://wa.me/55170000000000?text=" + mensagemUri;
   finalizarBtn.setAttribute("href", url);
-  console.log(url);
+
 }
 
 // Adicione o evento de clique ao botão "Finalizar"
