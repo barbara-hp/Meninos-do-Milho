@@ -346,7 +346,7 @@ function atualizarURLWhatsApp () {
     });
   });
   const mensagemUri = encodeURI(mensagem);
-  const url = `https://api.whatsapp.com/send/?phone=55170000000&text= ` + mensagemUri;
+  const url = `https://api.whatsapp.com/send/?phone=5517996767733&text= ` + mensagemUri;
   finalizarBtn.setAttribute("href", url);
   console.log(url);
 }
