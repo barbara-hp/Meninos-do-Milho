@@ -126,7 +126,7 @@ cards.forEach((card, index) => {
     <button class="btn-opt btn__opt-continuar"><img src="./imgs/add_shopping_cart_FILL0_wght400_GRAD0_opsz24.svg" />Continuar</button>
 
    
-    <button class="btn-opt btn__opt-finalizar"><a id="icon-whatsapp" aria-label="Chat on WhatsApp" href="https://wa.me//55170000000?text=Ola,%20quero%20conhecer%20as%20delicias%20de%20milho!"><img src="./imgs/carrinhodecomprasFinalizar.svg" /></a>Finalizar</button>
+    <button class="btn-opt btn__opt-finalizar"><a id="icon-whatsapp" aria-label="Chat on WhatsApp" href=""><img src="./imgs/carrinhodecomprasFinalizar.svg" /></a>Finalizar</button>
 
   </div>
 `;
@@ -281,7 +281,7 @@ function renderizaCarrinho (index) {
     <button class="btn-opt btn__opt-continuar"><img src="./imgs/add_shopping_cart_FILL0_wght400_GRAD0_opsz24.svg" />Continuar</button>
 
     <button class="btn-opt btn__opt-finalizar"><a id="icon-whatsapp" aria-label="Chat on WhatsApp" href=""><img src="./imgs/carrinhodecomprasFinalizar.svg"/></a>Finalizar</button>
-
+    renderiza
   </div>
     `;
     const body = document.querySelector("body");
@@ -305,10 +305,9 @@ function renderizaCarrinho (index) {
         lista.appendChild(listItem);
       }
     });
+
   });
-
-
-
+  eventoFinalizar();
 }
 
 
@@ -331,7 +330,8 @@ verCesta.forEach((btn, index) => {
 });
 
 function atualizarURLWhatsApp () {
-  const finalizarBtn = document.querySelector(".btn__opt-finalizar #icon-whatsapp");
+  const finalizarButtons = document.querySelectorAll(".btn__opt-finalizar #icon-whatsapp");
+
   let mensagem = "Olá, gostaria de fazer meu pedido:";
 
   cards.forEach((card) => {
@@ -345,12 +345,22 @@ function atualizarURLWhatsApp () {
       }
     });
   });
-  const mensagemUri = encodeURI(mensagem);
-  const url = "https://wa.me/55170000000000?text=" + mensagemUri;
-  finalizarBtn.setAttribute("href", url);
 
+  const mensagemUri = encodeURI(mensagem);
+
+  finalizarButtons.forEach((button) => {
+    const url = "https://wa.me/55170000000000?text=" + mensagemUri;
+    button.setAttribute("href", url);
+  });
 }
 
-// Adicione o evento de clique ao botão "Finalizar"
-const finalizarButton = document.querySelector(".btn__opt-finalizar");
-finalizarButton.addEventListener("click", atualizarURLWhatsApp);
+
+function eventoFinalizar () {
+  const finalizarButtons = document.querySelectorAll(".btn__opt-finalizar");
+  finalizarButtons.forEach(btn => {
+    btn.addEventListener("click", atualizarURLWhatsApp);
+  });
+}
+
+
+adicionarEventoFinalizar();
