@@ -349,7 +349,7 @@ function atualizarURLWhatsApp () {
   const mensagemUri = encodeURI(mensagem);
 
   finalizarButtons.forEach((button) => {
-    const url = "https://wa.me/55170000000000?text=" + mensagemUri;
+    const url = "https://wa.me/5517996767733?text=" + mensagemUri;
     button.setAttribute("href", url);
   });
 }
@@ -363,4 +363,4 @@ function eventoFinalizar () {
 }
 
 
-adicionarEventoFinalizar();
+eventoFinalizar();
