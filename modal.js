@@ -185,12 +185,15 @@ buttonsClose.forEach((button, index) => {
 
 overlay.addEventListener('click', function () {
   const modal = document.querySelector(".modal.active");
-  const lista = document.querySelector(".lista-cesta");
+  const carrinhoAtivo = document.querySelector(".modal-carrinho.active-carrinho");
+
   if (modal) {
     modal.classList.remove("active");
   }
 
-
+  if (carrinhoAtivo) {
+    carrinhoAtivo.classList.remove("active-carrinho");
+  }
 
   overlay.classList.add("hidden");
   document.body.style.overflowY = "scroll";
@@ -265,9 +268,12 @@ function renderizaCarrinho (index) {
   if (!listaDiv) {
     listaDiv = document.createElement("div");
     listaDiv.classList.add("lista-cesta");
-    listaDiv.classList.add("modal");
+    listaDiv.classList.add("modal-carrinho");
     listaDiv.innerHTML = /*html */`
-      <h3 class="carrinho__titulo">Seu carrinho</h3>
+    <div class="wrap-titulo-modal">
+    <h2 class="modal__header">Seu carrinho</h2>
+    <button class="btn--close-modal">&times;</button>
+  </div>
       <div class="conteudo"></div>
       <div class="container-valor container-valor-modal">
     <span class="total-modal">Total</span>
@@ -277,7 +283,6 @@ function renderizaCarrinho (index) {
     <button class="btn-opt btn__opt-continuar"><img src="./imgs/add_shopping_cart_FILL0_wght400_GRAD0_opsz24.svg" />Continuar</button>
 
     <button class="btn-opt btn__opt-finalizar"><img src="./imgs/carrinhodecomprasFinalizar.svg" />Finalizar</button>
-
 
   </div>
     `;
@@ -297,6 +302,7 @@ function renderizaCarrinho (index) {
       const quantidade = input.value;
       if (quantidade > 0) {
         const listItem = document.createElement("p");
+        listItem.classList.add("item-carrinho");
         listItem.textContent = `${quantidade} - ${produtos[inputIndex].nome}`;
         lista.appendChild(listItem);
       }
@@ -304,12 +310,22 @@ function renderizaCarrinho (index) {
   });
 }
 
+
+function openCarrinho (index) {
+  renderizaCarrinho(index);
+  const listaDiv = document.querySelector(".lista-cesta");
+  setTimeout(() => {
+    listaDiv.classList.add("active-carrinho");
+  }, 10);
+  overlay.classList.remove("hidden");
+  document.body.style.overflowY = "hidden";
+}
 const verCesta = document.querySelectorAll(".btn__opt-cesta");
 
 verCesta.forEach((btn, index) => {
   btn.addEventListener("click", () => {
-    renderizaCarrinho(index);
-    const listaDiv = document.querySelector(".lista-cesta");
-    listaDiv.classList.add("active");
+    openCarrinho(index);
+
   });
 });
+
