@@ -332,7 +332,7 @@ verCesta.forEach((btn, index) => {
 
 function atualizarURLWhatsApp () {
   const finalizarBtn = document.querySelector(".btn__opt-finalizar #icon-whatsapp");
-  let mensagem = "";
+  let mensagem = "Olá, gostaria de fazer meu pedido:";
 
   cards.forEach((card) => {
     const inputs = card.querySelectorAll("input[type='number']");
