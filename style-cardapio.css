@@ -364,7 +364,7 @@ main {
 	align-items: center;
 	border: none;
 	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.438);
-	background-color: cyan;
+
 	width: 95px;
 	padding: 5px;
 	gap: 2px;
