@@ -280,7 +280,7 @@ function renderizaCarrinho (index) {
     <div class="btns-opt-container">
     <button class="btn-opt btn__opt-continuar"><img src="./imgs/add_shopping_cart_FILL0_wght400_GRAD0_opsz24.svg" />Continuar</button>
 
-    <button class="btn-opt btn__opt-finalizar"><a id="icon-whatsapp" aria-label="Chat on WhatsApp" href="https://wa.me//55170000000?text=Ola,%20quero%20conhecer%20as%20delicias%20de%20milho!"><img src="./imgs/carrinhodecomprasFinalizar.svg" /></a>Finalizar</button>
+    <button class="btn-opt btn__opt-finalizar"><a id="icon-whatsapp" aria-label="Chat on WhatsApp" href=""><img src="./imgs/carrinhodecomprasFinalizar.svg"/></a>Finalizar</button>
 
   </div>
     `;
@@ -331,7 +331,7 @@ verCesta.forEach((btn, index) => {
 });
 
 function atualizarURLWhatsApp () {
-  const finalizarBtn = document.querySelector(".btn__opt-finalizar");
+  const finalizarBtn = document.querySelector(".btn__opt-finalizar #icon-whatsapp");
   let mensagem = "";
 
   cards.forEach((card) => {
@@ -346,11 +346,11 @@ function atualizarURLWhatsApp () {
     });
   });
   const mensagemUri = encodeURI(mensagem);
-  const url = `https://api.whatsapp.com/send/?phone=5517996767733&text= ` + mensagemUri;
+  const url = "https://wa.me/5517996767733?text=" + mensagemUri;
   finalizarBtn.setAttribute("href", url);
   console.log(url);
 }
 
 // Adicione o evento de clique ao botão "Finalizar"
-const finalizarButton = document.querySelector(".btn-opt.btn__opt-finalizar");
+const finalizarButton = document.querySelector(".btn__opt-finalizar");
 finalizarButton.addEventListener("click", atualizarURLWhatsApp);
