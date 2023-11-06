@@ -190,9 +190,7 @@ overlay.addEventListener('click', function () {
     modal.classList.remove("active");
   }
 
-  // if (lista) {
-  //   lista.classList.add("hidden");
-  // }
+
 
   overlay.classList.add("hidden");
   document.body.style.overflowY = "scroll";
@@ -255,16 +253,20 @@ btnsMenos.forEach((btnMenos, index) => {
   });
 });
 
-cards.forEach(
-  (card, index) => {
 
-    let listaDivs = document.querySelectorAll(".lista-cesta");
-    let listaDiv = listaDivs[index];
-    if (!listaDiv) {
-      listaDiv = document.createElement("div");
-      listaDiv.classList.add("lista-cesta");
-      listaDiv.classList.add("modal");
-      listaDiv.innerHTML = /*html */`
+
+function renderizaCarrinho (index) {
+
+  const modal = modals[index];
+  modal.classList.remove("active");
+
+  let listaDiv = document.querySelector(".lista-cesta");
+
+  if (!listaDiv) {
+    listaDiv = document.createElement("div");
+    listaDiv.classList.add("lista-cesta");
+    listaDiv.classList.add("modal");
+    listaDiv.innerHTML = /*html */`
       <h3 class="carrinho__titulo">Seu carrinho</h3>
       <div class="conteudo"></div>
       <div class="container-valor container-valor-modal">
@@ -272,25 +274,20 @@ cards.forEach(
     <span class="linha linha-modal"></span>
     <span class="valor valor-modal" id="valor-total-${index}">R$ 0.00</span>
     <div class="btns-opt-container">
-      <button class="btn-opt btn__opt-continuar"><img src="./imgs/add_shopping_cart_FILL0_wght400_GRAD0_opsz24.svg" />Continuar</button>
+    <button class="btn-opt btn__opt-continuar"><img src="./imgs/add_shopping_cart_FILL0_wght400_GRAD0_opsz24.svg" />Continuar</button>
 
-      <button class="btn-opt btn__opt-finalizar"><img src="./imgs/carrinhodecomprasFinalizar.svg" />Finalizar</button>
-    </div>
+    <button class="btn-opt btn__opt-finalizar"><img src="./imgs/carrinhodecomprasFinalizar.svg" />Finalizar</button>
+
+
+  </div>
     `;
-      card.appendChild(listaDiv);
-    } else {
-      const lista = document.querySelector(".conteudo");
-      lista.innerHTML = "";
-    }
+    const body = document.querySelector("body");
+    body.appendChild(listaDiv);
+  } else {
+    const lista = document.querySelector(".conteudo");
+    lista.innerHTML = "";
   }
-);
 
-
-function renderizaCarrinho (index) {
-  const modal = modals[index];
-  modal.classList.remove("active");
-  const listaDivs = document.querySelectorAll(".lista-cesta");
-  listaDivs[index].classList.add("active");
   cards.forEach((card) => {
     const lista = document.querySelector(".conteudo");
     const inputs = card.querySelectorAll("input[type='number']");
@@ -305,7 +302,6 @@ function renderizaCarrinho (index) {
       }
     });
   });
-
 }
 
 const verCesta = document.querySelectorAll(".btn__opt-cesta");
@@ -313,5 +309,7 @@ const verCesta = document.querySelectorAll(".btn__opt-cesta");
 verCesta.forEach((btn, index) => {
   btn.addEventListener("click", () => {
     renderizaCarrinho(index);
+    const listaDiv = document.querySelector(".lista-cesta");
+    listaDiv.classList.add("active");
   });
 });

@@ -1,0 +1,86 @@
+btnsMais.forEach((btnMais, index) => {
+  btnMais.addEventListener("click", (e) => {
+    e.preventDefault();
+    const input = inputs[index];
+    let valorAtual = parseInt(input.value) || 0;
+    if (input) {
+      valorAtual++;
+      input.value = valorAtual;
+      calcValorTotal();
+    }
+  });
+});
+
+btnsMenos.forEach((btnMenos, index) => {
+  btnMenos.addEventListener("click", (e) => {
+    e.preventDefault();
+    const input = inputs[index];
+    let valorAtual = input.value;
+    if (valorAtual > 0) {
+      valorAtual--;
+      input.value = valorAtual;
+      calcValorTotal();
+    }
+  });
+});
+
+cards.forEach(
+  (card, index) => {
+
+    let listaDivs = document.querySelectorAll(".lista-cesta");
+    let listaDiv = listaDivs[index];
+    if (!listaDiv) {
+      listaDiv = document.createElement("div");
+      listaDiv.classList.add("lista-cesta");
+      listaDiv.classList.add("modal");
+      listaDiv.innerHTML = /*html */`
+      <h3 class="carrinho__titulo">Seu carrinho</h3>
+      <div class="conteudo"></div>
+      <div class="container-valor container-valor-modal">
+    <span class="total-modal">Total</span>
+    <span class="linha linha-modal"></span>
+    <span class="valor valor-modal" id="valor-total-${index}">R$ 0.00</span>
+    <div class="btns-opt-container">
+      <button class="btn-opt btn__opt-continuar"><img src="./imgs/add_shopping_cart_FILL0_wght400_GRAD0_opsz24.svg" />Continuar</button>
+
+      <button class="btn-opt btn__opt-finalizar"><img src="./imgs/carrinhodecomprasFinalizar.svg" />Finalizar</button>
+    </div>
+    `;
+      card.appendChild(listaDiv);
+    } else {
+      const lista = document.querySelector(".conteudo");
+      lista.innerHTML = "";
+    }
+  }
+);
+
+
+function renderizaCarrinho (index) {
+  const modal = modals[index];
+  modal.classList.remove("active");
+  const listaDivs = document.querySelectorAll(".lista-cesta");
+  listaDivs[index].classList.add("active");
+  cards.forEach((card) => {
+    const lista = document.querySelector(".conteudo");
+    const inputs = card.querySelectorAll("input[type='number']");
+    const produtos = produtosModal[card.getAttribute("id")];
+
+    inputs.forEach((input, inputIndex) => {
+      const quantidade = input.value;
+      if (quantidade > 0) {
+        const listItem = document.createElement("p");
+        listItem.textContent = `${quantidade} - ${produtos[inputIndex].nome}`;
+        lista.appendChild(listItem);
+      }
+    });
+  });
+
+}
+
+const verCesta = document.querySelectorAll(".btn__opt-cesta");
+
+verCesta.forEach((btn, index) => {
+  btn.addEventListener("click", () => {
+    renderizaCarrinho(index);
+  });
+});
