@@ -97,7 +97,7 @@ cards.forEach((card, index) => {
       
       ${Object.keys(produtosModal).map((categoria) => {
     if (categoria === card.getAttribute("id")) {
-      return produtosModal[categoria].map((produto, i) => `
+      return produtosModal[categoria].map((produto, i) =>/*html*/`
           <div class="modal-produto-wrap">
             
               <p>${produto.nome}</p>
@@ -181,16 +181,15 @@ buttonsClose.forEach((button, index) => {
   });
 });
 
+
 overlay.addEventListener('click', function () {
   const modal = document.querySelector(".modal.active");
   const carrinhoAtivo = document.querySelector(".modal-carrinho.active-carrinho");
-
-  if (modal) {
-    modal.classList.remove("active");
-  }
-
   if (carrinhoAtivo) {
     carrinhoAtivo.classList.remove("active-carrinho");
+  }
+  if (modal) {
+    modal.classList.remove("active");
   }
 
   overlay.classList.add("hidden");
@@ -201,6 +200,8 @@ overlay.addEventListener('click', function () {
 const btnsDiminuir = document.querySelectorAll(".btn-menos");
 const btnsAumentar = document.querySelectorAll(".btn-mais");
 const valorTotal = document.querySelectorAll(".valor-modal");
+
+
 
 function calcValorTotal () {
   cards.forEach((card) => {
@@ -227,6 +228,7 @@ function calcValorTotal () {
 const btnsMais = document.querySelectorAll(".btn-mais");
 const btnsMenos = document.querySelectorAll(".btn-menos");
 const inputs = document.querySelectorAll("input[type='number']");
+const buttonsContinuarModal = document.querySelectorAll(".btn__opt-continuar");
 
 btnsMais.forEach((btnMais, index) => {
   btnMais.addEventListener("click", (e) => {
@@ -255,12 +257,16 @@ btnsMenos.forEach((btnMenos, index) => {
 });
 
 
+buttonsContinuarModal.forEach((button, index) => {
+  button.addEventListener("click", () =>
+    closeModal(index));
+});
+
 
 function renderizaCarrinho (index) {
 
   const modal = modals[index];
   modal.classList.remove("active");
-
   let listaDiv = document.querySelector(".lista-cesta");
 
   if (!listaDiv) {
@@ -270,20 +276,20 @@ function renderizaCarrinho (index) {
     listaDiv.innerHTML = /*html */`
     <div class="wrap-titulo-modal">
     <h2 class="modal__header">Seu carrinho</h2>
-    <button class="btn--close-modal">&times;</button>
+    <button class="btn--close-modal btn__close-carrinho">&times;</button>
   </div>
       <div class="conteudo"></div>
       <div class="container-valor container-valor-modal">
     <span class="total-modal">Total</span>
     <span class="linha linha-modal"></span>
-    <span class="valor valor-modal" id="valor-total-${index}">R$ 0.00</span>
+    <span class="valor valor-modal" id="valor-total-carrinho">R$ 0.00</span>
     <div class="btns-opt-container">
-    <button class="btn-opt btn__opt-continuar"><img src="./imgs/add_shopping_cart_FILL0_wght400_GRAD0_opsz24.svg" />Continuar</button>
+    <button class="btn-opt btn__opt-continuar btn__opt-continuar-carrinho"><img src="./imgs/add_shopping_cart_FILL0_wght400_GRAD0_opsz24.svg" />Continuar</button>
 
     <button class="btn-opt btn__opt-finalizar"><a id="icon-whatsapp" aria-label="Chat on WhatsApp" href=""><img src="./imgs/carrinhodecomprasFinalizar.svg"/></a>Finalizar</button>
-    renderiza
   </div>
     `;
+
     const body = document.querySelector("body");
     body.appendChild(listaDiv);
   } else {
@@ -307,27 +313,64 @@ function renderizaCarrinho (index) {
     });
 
   });
+  calcularTotalGeral();
   eventoFinalizar();
 }
+function calcularTotalGeral () {
+  let totalGeral = 0;
 
+  cards.forEach((card) => {
+    const inputs = card.querySelectorAll("input[type='number']");
+    const produtos = produtosModal[card.getAttribute("id")];
+
+    Array.from(inputs).forEach((input, i) => {
+      const quantidade = parseInt(input.value);
+      const preco = parseFloat(produtos[i].preco.replace('R$', '').trim());
+
+      if (!isNaN(preco)) {
+        totalGeral += quantidade * preco;
+      }
+    });
+  });
+
+  const valorTotalCarrinho = document.getElementById("valor-total-carrinho");
+  const totalCarrinho = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(totalGeral);
+
+  valorTotalCarrinho.textContent = totalCarrinho;
+}
 
 function openCarrinho (index) {
   renderizaCarrinho(index);
   const listaDiv = document.querySelector(".lista-cesta");
+  const btnContinuaCarrinho = document.querySelector(".btn__opt-continuar-carrinho");
+  const buttonClose = document.querySelector(".btn__close-carrinho");
+
   setTimeout(() => {
     listaDiv.classList.add("active-carrinho");
   }, 10);
   overlay.classList.remove("hidden");
   document.body.style.overflowY = "hidden";
+
+  btnContinuaCarrinho.addEventListener("click", closeCarrinho);
+
+  buttonClose.addEventListener("click", closeCarrinho);
+
 }
+
+function closeCarrinho () {
+  const carrinhoAtivo = document.querySelector(".modal-carrinho.active-carrinho");
+  carrinhoAtivo.classList.remove("active-carrinho");
+  overlay.classList.add("hidden");
+}
+
 const verCesta = document.querySelectorAll(".btn__opt-cesta");
 
 verCesta.forEach((btn, index) => {
   btn.addEventListener("click", () => {
     openCarrinho(index);
-
   });
 });
+
 
 function atualizarURLWhatsApp () {
   const finalizarButtons = document.querySelectorAll(".btn__opt-finalizar #icon-whatsapp");
@@ -341,7 +384,7 @@ function atualizarURLWhatsApp () {
     inputs.forEach((input, inputIndex) => {
       const quantidade = input.value;
       if (quantidade > 0) {
-        mensagem += `${quantidade} - ${produtos[inputIndex].nome}`;
+        mensagem += `\n${quantidade} - ${produtos[inputIndex].nome}`;
       }
     });
   });
@@ -362,5 +405,8 @@ function eventoFinalizar () {
   });
 }
 
-
 eventoFinalizar();
+
+
+
+

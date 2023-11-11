@@ -253,6 +253,7 @@ main {
 	justify-content: space-between;
 	font-family: "Poppins", sans-serif;
 	height: 35px;
+	margin-bottom: 0.5em;
 }
 .modal__header {
 	font-size: 1.2em;
@@ -353,6 +354,7 @@ main {
 	align-items: center;
 	justify-content: space-between;
 	padding: 1em;
+	background-color: white;
 }
 
 .btn-opt {
@@ -427,8 +429,13 @@ main {
 }
 
 .modal-carrinho.active-carrinho {
-	height: 500px;
+	height: 400px;
 	visibility: visible;
+}
+
+.conteudo {
+	max-height: 350px;
+	overflow-y: scroll;
 }
 
 .item-carrinho {
