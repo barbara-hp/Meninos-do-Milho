@@ -663,6 +663,7 @@ textarea:focus {
 	justify-content: space-between;
 	width: 100%;
 }
+
 .container-img-footer {
 	width: 100%;
 	display: flex;
@@ -670,6 +671,7 @@ textarea:focus {
 	align-items: start;
 	padding-top: 1.5em;
 }
+
 .titulo-footer {
 	font-family: "Poppins", sans-serif;
 	font-size: 1em;
