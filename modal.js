@@ -166,6 +166,7 @@ function closeModal (index) {
 
   modal.classList.remove("active");
   overlay.classList.add("hidden");
+  document.body.style.overflowY = "scroll";
 }
 
 buttonsOpen.forEach((button, index) => {
@@ -361,6 +362,7 @@ function closeCarrinho () {
   const carrinhoAtivo = document.querySelector(".modal-carrinho.active-carrinho");
   carrinhoAtivo.classList.remove("active-carrinho");
   overlay.classList.add("hidden");
+  document.body.style.overflowY = "scroll";
 }
 
 const verCesta = document.querySelectorAll(".btn__opt-cesta");
