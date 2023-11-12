@@ -125,17 +125,29 @@ buttonSaibaMais.addEventListener("click", () => {
 
 const linhas = document.querySelectorAll(".scroll");
 
-
 linhas.forEach(link => {
   link.addEventListener('click', function (e) {
-    e.preventDefault();
-    const targetId = this.firstElementChild.getAttribute('href').substring(1);
-    const targetElement = document.getElementById(targetId);
-    if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'smooth' });
+    const href = this.firstElementChild.getAttribute('href');
+
+
+    if (href === 'pagina2.html') {
+      e.preventDefault();
+      window.location.href = href;
+    } else {
+      e.preventDefault();
+
+      const targetId = href.substring(1);
+      const targetElement = document.getElementById(targetId);
+
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   });
 });
+
+
+
 
 
 const menu = document.querySelector(".menu-container");
