@@ -469,9 +469,10 @@ main {
 	text-shadow: 1px 1px 3px rgba(44, 42, 42, 0.596);
 }
 .img-formas-pagamento {
-	width: 100%;
+	width: 80%;
 	height: 80%;
-	border-radius: 8px;
+	margin: auto;
+	padding-bottom: 0.5em;
 }
 .container-img-footer {
 	width: 50%;
