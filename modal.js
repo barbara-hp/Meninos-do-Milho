@@ -77,6 +77,12 @@ const produtosModal = {
       nome: "Polpa de milho ralado",
       preco: "30.00"
     }
+  ],
+  sorvete: [
+    {
+      nome: "Sorvete cremoso de milho",
+      preco: "10,00"
+    }
   ]
 };
 

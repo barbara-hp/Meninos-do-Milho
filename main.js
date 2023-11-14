@@ -12,7 +12,6 @@ const slider = function () {
   let currentSlide = 0;
   const maxSlide = slides.length;
 
-  //Funtions
   const createDots = function () {
     slides.forEach(function (_, i) {
       dotContainer.insertAdjacentHTML("beforeend",
@@ -145,8 +144,6 @@ linhas.forEach(link => {
     }
   });
 });
-
-
 
 
 
