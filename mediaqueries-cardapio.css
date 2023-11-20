@@ -1,0 +1,137 @@
+@charset "utf-8";
+
+@media screen and (min-width: 850px) {
+	html {
+		overflow-x: hidden;
+	}
+	main {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 20px;
+		padding: 20px;
+	}
+	.header {
+		height: auto;
+	}
+	.menu-container {
+		position: fixed;
+		top: 0;
+		right: 1em;
+		display: hidden;
+		height: 100px;
+		background-color: transparent;
+		border: none;
+		box-shadow: none;
+		width: auto;
+		text-align: end;
+	}
+	#pagina-principal .icone-menu {
+		display: none;
+	}
+	#pagina-principal {
+		width: 80%;
+		text-decoration: none;
+		text-align: center;
+	}
+	.menu-container p {
+		display: block;
+		width: 100%;
+		font-family: "Raleway", sans-serif;
+		font-size: 1.2em;
+		font-weight: 600;
+		color: white;
+	}
+
+	.menu-container p:hover {
+		border-radius: 8px;
+		background-color: #21535f;
+		padding: 0.6em;
+	}
+
+	.img-logo {
+		height: 85px;
+		width: 110px;
+		align-self: center;
+		padding-left: 1.2em;
+	}
+	.teste {
+		height: 100px;
+	}
+	.teste-2 {
+		height: 300px;
+		top: 50px;
+	}
+	.teste-2 > h1 {
+		font-size: 2.8em;
+	}
+	.teste-2 > p {
+		font-size: 1.5em;
+	}
+
+	.card {
+		width: 100%;
+		height: 400px;
+		font-size: 1.2em;
+	}
+	.card-titulo {
+		max-width: 85%;
+	}
+	.placa-container {
+		grid-column: span 2;
+		max-width: 500px;
+		margin-bottom: 2em;
+		height: 220px;
+	}
+	.placa-titulo {
+		bottom: 145px;
+		left: 22%;
+		font-size: 3.5em;
+	}
+
+	.img-produto {
+		height: 180px;
+	}
+	.modal.active {
+		height: 450px;
+	}
+	.active-carrinho {
+		width: 650px;
+		margin: auto;
+	}
+
+	.container-links-footer {
+		flex-direction: row;
+		font-size: 1.2em;
+	}
+	.lista-link,
+	.redes-container {
+		width: 50%;
+		align-items: center;
+	}
+	.img-formas-pagamento {
+		height: 200px;
+		width: 70%;
+	}
+	.redes-container {
+		font-size: 1.3em;
+		flex-direction: column;
+		justify-content: center;
+	}
+	.link-container {
+		justify-content: center;
+	}
+	.link-container > svg {
+		width: 40px;
+		height: 40px;
+	}
+	.container-img-footer {
+		align-items: center;
+		height: 200px;
+		padding: 0.5em 0 0 0;
+	}
+
+	.footer-img {
+		height: 100%;
+		width: 200px;
+	}
+}

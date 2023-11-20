@@ -13,10 +13,20 @@ const slider = function () {
   const maxSlide = slides.length;
 
   const createDots = function () {
-    slides.forEach(function (_, i) {
-      dotContainer.insertAdjacentHTML("beforeend",
-        `<button class="dots__dot" data-slide="${i}"></button>`);
-    });
+    const screenWidth = window.innerWidth;
+    const numDots = slides.length;
+
+    if (screenWidth > 1000) {
+      // Se a largura da tela for maior que 1000px, subtrai 2 do número de dots
+      for (let i = 0; i < numDots - 2; i++) {
+        dotContainer.insertAdjacentHTML("beforeend", `<button class="dots__dot" data-slide="${i}"></button>`);
+      }
+    } else {
+      // Se a largura da tela for 1000px ou menos, cria dots para todos os slides
+      slides.forEach(function (_, i) {
+        dotContainer.insertAdjacentHTML("beforeend", `<button class="dots__dot" data-slide="${i}"></button>`);
+      });
+    }
   };
 
 
@@ -26,13 +36,20 @@ const slider = function () {
     document.querySelector(`.dots__dot[data-slide="${slide}"]`).classList.add("dots__dot--active");
   };
 
-  const goToSlide = function (slide) {
+  let goToSlide = function (slide) {
     slides.forEach((s, i) => s.style.transform = `translateX(${100 * (i - slide)}%)`);
   };
 
 
 
   const nextSlide = function () {
+    const screenWidth = window.innerWidth;
+
+    if (screenWidth >= 1000) {
+      if (currentSlide === maxSlide - 3) {
+        currentSlide = -1;
+      }
+    }
     if (currentSlide === maxSlide - 1) {
       currentSlide = 0;
     } else {
@@ -55,6 +72,7 @@ const slider = function () {
   };
 
   const init = function () {
+
     goToSlide(0);
     createDots();
     activateDot(0);

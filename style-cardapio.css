@@ -102,7 +102,9 @@ html {
 	align-items: center;
 	justify-content: center;
 }
-
+.menu-container p {
+	display: none;
+}
 /* ------ MAIN ------*/
 main {
 	background-color: white;
